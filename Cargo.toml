@@ -1,0 +1,28 @@
+[package]
+name = "nt-apiset"
+version = "0.1.0"
+authors = ["Colin Finck <colin@reactos.org>"]
+description = "A parser for API Set Map files of Windows 10 and later"
+homepage = "https://github.com/ColinFinck/nt-apiset"
+repository = "https://github.com/ColinFinck/nt-apiset"
+documentation = "https://docs.rs/nt-apiset"
+readme = "README.md"
+edition = "2021"
+rust-version = "1.58"
+license = "MIT OR Apache-2.0"
+keywords = ["apiset", "nt", "windows"]
+categories = ["development-tools::ffi", "no-std", "os::windows-apis"]
+
+[dependencies]
+bitflags = "2.3.1"
+displaydoc = { version = "0.2.4", default-features = false }
+nt-string = { version = "0.1.0", default-features = false }
+pelite = { version = "0.10.0", optional = true }
+zerocopy = "0.6.1"
+
+[dev-dependencies]
+anyhow = "1.0.71"
+
+[features]
+default = ["pelite", "std"]
+std = ["nt-string/std"]
